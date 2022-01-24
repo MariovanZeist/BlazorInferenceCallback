@@ -1,0 +1,19 @@
+﻿@page "/"
+
+
+@*Comment the below line to make it compile*@
+<InferAndCallBack Items=Ingredient.Ingredients SelectEvent=SelectedIngredient />
+
+<InferAndCallBack T=Ingredient Items=Ingredient.Ingredients SelectEvent=SelectedIngredient/>
+
+Last ingredient:@_ingredient
+
+@code {
+    private Ingredient? _ingredient;
+
+    private Task SelectedIngredient(Ingredient selectedIngredient)
+    {
+        _ingredient = selectedIngredient;
+        return Task.CompletedTask;
+    }
+}

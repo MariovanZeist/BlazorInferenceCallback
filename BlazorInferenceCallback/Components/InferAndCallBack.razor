@@ -1,0 +1,19 @@
+﻿@typeparam T
+<h3>Select an ingredient</h3>
+
+@if (Items != null)
+{
+    <ul>
+       @foreach (var item in Items)
+       {
+           <li style="cursor: pointer;" @onclick="(async () => await SelectEvent.InvokeAsync(item))" >
+               @item
+           </li>
+       }
+   </ul>
+}
+
+@code {
+    [Parameter] public IEnumerable<T> Items { get; set; } = default!;
+    [Parameter] public EventCallback<T> SelectEvent { get; set; } = default!;
+}
