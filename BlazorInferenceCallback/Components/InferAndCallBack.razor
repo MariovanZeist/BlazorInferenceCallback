@@ -6,7 +6,7 @@
     <ul>
        @foreach (var item in Items)
        {
-           <li style="cursor: pointer;" @onclick="(async () => await SelectEvent.InvokeAsync(item))" >
+           <li class=@CssClass style=@CssStyle @onclick="(async () => await SelectEvent.InvokeAsync(item))" >
                @item
            </li>
        }
@@ -16,4 +16,12 @@
 @code {
     [Parameter] public IEnumerable<T> Items { get; set; } = default!;
     [Parameter] public EventCallback<T> SelectEvent { get; set; } = default!;
+
+
+    private string CssClass
+      => SelectEvent.HasDelegate ? "" : "text-muted";
+
+    private string CssStyle
+      => SelectEvent.HasDelegate ? "cursor: pointer;" : "";
+
 }
