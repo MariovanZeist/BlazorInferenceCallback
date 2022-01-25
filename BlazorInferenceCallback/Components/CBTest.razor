@@ -1,0 +1,9 @@
+﻿@typeparam T
+
+@code {
+    [Parameter] public IEnumerable<T> Items { get; set; } = default!;
+    [Parameter] public EventCallback SimpleEvent { get; set; } = default!;
+    [Parameter] public EventCallback<MouseEventArgs> MouseEvent { get; set; } = default!;
+    [Parameter] public EventCallback<T> SelectEvent { get; set; } = default!;
+    [Parameter] public EventCallback<RowArgs<T>> RowEvent { get; set; } = default!;
+}

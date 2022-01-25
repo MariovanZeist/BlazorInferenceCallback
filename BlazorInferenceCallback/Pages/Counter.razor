@@ -8,6 +8,18 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+
+<CBTest Items=Ingredient.Ingredients SimpleEvent=DoSimple />
+<CBTest Items=Ingredient.Ingredients MouseEvent=DoClick />
+<CBTest Items=Ingredient.Ingredients SelectEvent=DoSelect />
+<CBTest Items=Ingredient.Ingredients RowEvent=DoRowSelect />
+
+
+<CBTest Items=Ingredient.Ingredients SelectEvent=DoSelect T=Ingredient/>
+<CBTest Items=Ingredient.Ingredients RowEvent=DoRowSelect T=Ingredient/>
+
+
+
 @code {
     private int currentCount = 0;
 
@@ -15,4 +27,13 @@
     {
         currentCount++;
     }
+
+    private void DoSimple() { }
+
+    private void DoClick(MouseEventArgs args) { }
+
+    private void DoSelect(Ingredient ingredient) { }
+
+    private void DoRowSelect(RowArgs<Ingredient> args) { }
+
 }
