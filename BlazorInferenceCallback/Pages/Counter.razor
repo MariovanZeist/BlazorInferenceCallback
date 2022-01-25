@@ -14,10 +14,11 @@
 <CBTest Items=Ingredient.Ingredients SelectEvent=DoSelect />
 <CBTest Items=Ingredient.Ingredients RowEvent=DoRowSelect />
 
+<CBTest Items=Ingredient.Ingredients SelectEvent="(Ingredient ingredient) => {}" />
+<CBTest Items=Ingredient.Ingredients RowEvent="(RowArgs<Ingredient> args) => {}" />
 
 <CBTest Items=Ingredient.Ingredients SelectEvent=DoSelect T=Ingredient/>
 <CBTest Items=Ingredient.Ingredients RowEvent=DoRowSelect T=Ingredient/>
-
 
 
 @code {
